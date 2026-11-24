@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "abderrahmen-akez",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp",      "top": 0,    "left": 0,    "attrs": {} },
+    { "type": "wokwi-ds18b20",          "id": "temp",     "top": -110, "left": 170,  "attrs": {} },
+    { "type": "wokwi-potentiometer",    "id": "pot",      "top": 130,  "left": 170,  "attrs": {} },
+    { "type": "wokwi-led",              "id": "led",      "top": -60,  "left": -110, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor",         "id": "r1",       "top": -20,  "left": -180, "attrs": { "value": "220" } },
+    { "type": "wokwi-buzzer",           "id": "bz",       "top": 100,  "left": -110, "attrs": {} },
+    { "type": "wokwi-ssd1306",          "id": "oled",     "top": -170, "left": -170, "attrs": {} }
+  ],
+  "connections": [
+    [ "temp:VCC",  "esp:3V3",   "red",   [ "v0" ] ],
+    [ "temp:GND",  "esp:GND",   "black", [ "v0" ] ],
+    [ "temp:DQ",   "esp:4",     "green", [ "v0" ] ],
+    [ "pot:VCC",   "esp:3V3",   "red",   [ "h0" ] ],
+    [ "pot:GND",   "esp:GND",   "black", [ "h0" ] ],
+    [ "pot:SIG",   "esp:34",    "blue",  [ "h0" ] ],
+    [ "led:A",     "esp:18",    "red",   [ "h0" ] ],
+    [ "led:C",     "r1:1",      "black", [ "v0" ] ],
+    [ "r1:2",      "esp:GND",   "black", [ "h0" ] ],
+    [ "bz:1",      "esp:19",    "red",   [ "h0" ] ],
+    [ "bz:2",      "esp:GND",   "black", [ "h0" ] ],
+    [ "oled:SDA",  "esp:21",    "green", [ "h0" ] ],
+    [ "oled:SCL",  "esp:22",    "blue",  [ "h0" ] ],
+    [ "oled:VCC",  "esp:3V3",   "red",   [ "h0" ] ],
+    [ "oled:GND",  "esp:GND",   "black", [ "h0" ] ],
+    [ "esp:TX",    "$serialMonitor:RX", "", [ "h0" ] ],
+    [ "esp:RX",    "$serialMonitor:TX", "", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
