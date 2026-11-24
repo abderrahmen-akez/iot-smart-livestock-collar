@@ -9,7 +9,6 @@
  *                   [le module GPS NEO-6M n'existe pas dans Wokwi :
  *                    les coordonnées sont simulées par dérive aléatoire]
  * Actionneurs     : LED + buzzer (alertes géofence / santé), OLED SSD1306
- * Cours           : Sécurité de l'Internet des Objets — TEK-UP (ING-5 SSIR)
  * ============================================================================
  *
  * Architecture MQTT (publish/subscribe, Ch.2) :
@@ -44,12 +43,11 @@ const char* WIFI_PASSWORD = "";
 /* production par un broker privé (Mosquitto auto-hébergé par exemple).     */
 const char* MQTT_HOST       = "broker.emqx.io";
 const uint16_t MQTT_PORT    = 1883;   // 8883 en production (MQTT over TLS)
-const char* MQTT_USER       = "tekup_student";     // <- AUTH : identifiant
-const char* MQTT_TOKEN      = "tekup_token_2026";  // <- AUTH : token secret
-const char* MQTT_CLIENT_ID  = "collier-COW_01";
+const char* MQTT_USER       = "";     // <- AUTH : identifiant
+const char* MQTT_TOKEN      = "";  // <- AUTH : token secret
+const char* MQTT_CLIENT_ID  = "collier-COW_01"; // <- ID: exemple
 
-/* Préfixe de topics propre au projet (évite les collisions sur le broker    */
-/* public partagé).                                                         */
+/* Préfixe de topics propre au projet (évite les collisions sur le broker public partagé).                                                         */
 const char* TOPIC_DATA          = "tekup/farm/data";            // PUB
 const char* TOPIC_STATUS        = "tekup/farm/status";          // PUB
 const char* TOPIC_ALERT_IMM     = "tekup/farm/alerts/immediate";// PUB
